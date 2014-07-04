@@ -1,0 +1,40 @@
+<html>
+<head>
+  <title>RSS reader</title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="stylesheet/style.css">
+
+  <script type="text/javascript" src="https://www.google.com/jsapi">
+  </script>
+  <script type="text/javascript">
+    google.load('feeds','1');
+  </script>
+  <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+  <!--script src='socket.io/socket.io.js'></script-->
+  <script src='javascript/script.js'></script>
+</head>
+
+<body>
+  <section class="search">
+  <h1>RSS Reader</h1>
+  <form>
+    <input type="text" placeholder="RSS feed URL"></input>
+    <button class='fetch'>Fetch feed</button>
+  </form>
+
+  </section>
+
+  <section class="content">
+    &nbsp;
+  </section>
+
+  <aside>
+    <h3>Saved feeds</h3>
+  </aside>
+
+</body>
+</html>
+
+
+ <!--https://devcenter.heroku.com/articles/getting-started-with-nodejs
+ change your port to process.env.PORT ex: app.listen(process.env.PORT, func...) -->
