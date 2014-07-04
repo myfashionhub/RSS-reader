@@ -1,6 +1,6 @@
 var Schema = mongoose.Schema;
 var FeedSchema = new Schema({
-  name     : String,
+  name     : { type: String,  unique: true },
   url      : String
 });
 

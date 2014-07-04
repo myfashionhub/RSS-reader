@@ -8,9 +8,11 @@ function loadFeed(url) {
 }
 
 function feedInfo(data, url) {
+  $('.feed-info').empty();
   var name     = $('<a>').html(data.feed.title)
-                         .attr('href', url);
-  var save     = $('<button>').html('Save feed').addClass('save-feed');
+                         .attr('href', url)
+                         .attr('target', '_blank');
+  var save     = $('<button>').html('Save this!').addClass('save-feed');
   $('.feed-info').append(name).append(save);
 }
 

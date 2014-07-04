@@ -5,24 +5,27 @@ function loadArchives() {
     dataType: 'json',
     success: function(data) {
       displaySaved(data);
-      console.log('Display saved feed on side');
     }
   });
 }
 
 function displaySaved(data) {
+  $('.saved-feeds').empty();
   for (var i = 0; i < data.length; i++) {
     var feed = $('<a>').html(data[i].name)
                        .attr('href', '#'+data[i].name)
                        .attr('data-url', data[i].url);
-    $('aside').append(feed);
+    $('.saved-feeds').append(feed);
   }
 
   $('aside').find('a').click(function(e) {
     var url = $(e.target).attr('data-url');
     var feed = new google.feeds.Feed(url);
       feed.setNumEntries(10);
-      feed.load(displayFeed);
+      feed.load(function(data) {
+        displayFeed(data)
+        $('.feed-info').html('<h2>'+data.feed.title+'</h23>');
+      });
   });
 }
 

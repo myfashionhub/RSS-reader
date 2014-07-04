@@ -4,13 +4,14 @@
 
 a {
   text-decoration: none;
-  color: #0071E3;
+  color: #23A897;
 }
 
 body {
   margin: 0;
   overflow: auto;
   font-size: 16px;
+
 }
 
 button {
@@ -19,12 +20,21 @@ button {
 
 .search {
   width: 55%;
-  margin: 0 2% 2em 8%;
+  margin: 0 2% .3em 8%;
   float: left;
 }
 
 h1 {
   font-size: 2.5em;
+}
+ /* FEED INFO */
+.feed-info {
+  margin: 2em 0 0 0;
+}
+
+.feed-info h2 {
+  margin: 0;
+  color: #555;
 }
 
 /* FEED CONTENT */
@@ -34,25 +44,26 @@ h1 {
   float: left;
 }
 
-.feed-info {
-  text-align: center;
-}
-
 .feed-info a {
+  color: #555;
   font-weight: bold;
   font-size: 1.3em;
 }
-
-.feed-info button {
-  padding: 7px 8px;
-  border: 0;
-  border-radius: 2px;
-  background-color: #4BA7B8;
-  color: #fff;
-  margin: 0 2em;
+.feed-info a:hover {
+  text-decoration: underline;
 }
-.feed-info button:hover {
-  background-color: #0096A3;
+
+.save-feed {
+  border: 0;
+  padding: 0;
+  margin: 0 0.7em;
+  color: #D6521E;
+  font-weight: bold;
+  font-size: 1.2em;
+  background-color: transparent;
+}
+.save-feed:hover {
+  font-style: italic;
   cursor: pointer;
 }
 
@@ -66,9 +77,11 @@ aside {
   top: 0;
   right: 0;
   width: 30%;
-  margin-right: 5%;
-  height: 700px;
-
+  margin-right: 3%;
+  padding: 0 1% 15px 1%;
+  background-color: rgba(255,188,125, 0.4);
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
 }
 
 aside h3 {
