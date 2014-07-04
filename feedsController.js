@@ -9,11 +9,12 @@ exports.index = function(req, res) {
 
 exports.create = function(req, res) {
   Feed.create({
-    name: req.params.name,
-    url : req.params.url
+    name: req.body.name,
+    url : req.body.url
   }, function(err, feed) {
     if (err) return console.log(err);
-    res.send(feed);
+    console.log(feed);
+    //res.send(feed);
   });
 }
 
