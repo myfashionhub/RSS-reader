@@ -17,6 +17,6 @@ app.get('/feeds', feedsController.index);
 app.post('/feeds', feedsController.create);
 app.get('/feeds/:id', feedsController.show);
 
-app.listen(8000, function() {
+app.listen(process.env.PORT, function() {
   console.log('App is listening on port 8000');
 })
