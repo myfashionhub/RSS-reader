@@ -18,8 +18,8 @@ button {
 }
 
 .search {
-  width: 65%;
-  margin: 0 2% 2em 3%;
+  width: 55%;
+  margin: 0 2% 2em 8%;
   float: left;
 }
 
@@ -29,8 +29,8 @@ h1 {
 
 /* FEED CONTENT */
 .content {
-  width: 65%;
-  margin: 0 2% 0 3%;
+  width: 55%;
+  margin: 0 2% 0 8%;
   float: left;
 }
 
@@ -56,24 +56,46 @@ h1 {
   cursor: pointer;
 }
 
+article img {
+ max-width: 100%;
+}
+
 /* ASIDE */
 aside {
   position: absolute;
   top: 0;
   right: 0;
   width: 30%;
+  margin-right: 5%;
   height: 700px;
 
 }
 
 aside h3 {
-  text-align: center;
-  font-size: 1.5em;
+  font-size: 1.2em;
+  margin: 2em 0 1em 0;
+  color:
+}
+
+aside h3:hover {
+  cursor: pointer;
 }
 
 aside a {
   font-weight: bold;
+  display: block;
+  line-height: 2em;
 }
-aside a:hover {
 
+aside .tooltip {
+  position: absolute;
+  z-index: 1;
+  top: 2.6em;
+  right: 0;
+  background-color: rgba(0,0,0, 0.4);
+  color: #fff;
+  font-size: 16px;
+  font-weight: normal;
+  padding: 7px 9px;
+  border-radius: 2px;
 }

@@ -13,8 +13,7 @@ exports.create = function(req, res) {
     url : req.body.url
   }, function(err, feed) {
     if (err) return console.log(err);
-    console.log(feed);
-    //res.send(feed);
+    res.send(feed);
   });
 }
 

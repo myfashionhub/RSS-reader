@@ -1,17 +1,21 @@
 function loadFeed(url) {
   var feed = new google.feeds.Feed(url);
-  feed.setNumEntries(1);
-  feed.load(function(data) { displayFeedArticle(data, url) });
+  feed.setNumEntries(8);
+  feed.load(function(data) {
+    feedInfo(data, url);
+    displayFeed(data);
+  });
 }
 
-function displayFeedArticle(data, url) {
+function feedInfo(data, url) {
   var name     = $('<a>').html(data.feed.title)
                          .attr('href', url);
   var save     = $('<button>').html('Save feed').addClass('save-feed');
-  var feedInfo = $('<div>').addClass('feed-info')
-                  .append(name).append(save);
-  $('.content').append(feedInfo);
+  $('.feed-info').append(name).append(save);
+}
 
+function displayFeed(data) {
+  $('.content').empty();
   var entries = data.feed.entries;
   for (var i = 0; i < entries.length; i++) {
     var article = $('<article>');
@@ -30,13 +34,15 @@ function saveFeed() {
   $('.save-feed').click(function() {
     var name = $('.feed-info').find('a').html();
     var url  = $('.feed-info').find('a').attr('href');
-    console.log('ajaxing');
     $.ajax({
       url:      '/feeds',
       method:   'post',
       data:     { name: name, url: url },
       dataType: 'json',
-      success: function() { }
+      success: function(data) {
+        loadArchives(data);
+        console.log('Adding saved feed');
+      }
     });
   });
 }
