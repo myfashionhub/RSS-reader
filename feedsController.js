@@ -15,11 +15,6 @@ exports.create = function(req, res) {
     if (err) return console.log(err);
     res.send(feed);
   });
-  feed.save(function(err) {
-    if (err && (err.code === 1100 || err.code === 11001)) {
-      res.send('Feed already saved');
-    }
-  });
 }
 
 exports.show = function(req, res) {
