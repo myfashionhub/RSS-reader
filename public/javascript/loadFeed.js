@@ -41,10 +41,8 @@ function saveFeed() {
       method:   'post',
       data:     { name: name, url: url },
       dataType: 'json',
-      success: function(data) {
-        loadArchives(data);
-        console.log('Adding saved feed');
-      }
+      success: loadArchives
+      // Append new feed to sidebar after saving
     });
   });
 }
