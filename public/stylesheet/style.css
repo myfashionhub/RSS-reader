@@ -4,7 +4,7 @@
 
 a {
   text-decoration: none;
-  color: #23A897;
+  color: #4BA7B8;
 }
 
 body {
@@ -28,6 +28,31 @@ button {
 h1 {
   font-size: 2.5em;
 }
+
+.search input {
+  width: 15em;
+  padding: 5px 6px 4px 6px;
+}
+
+.search input,
+.search button {
+  font-size: 1em;
+}
+
+.fetch {
+  padding: 7px 10px 6px 10px;
+  background-color: #4BA7B8;
+  color: #fff;
+  font-weight: bold;
+  border: 0;
+  border-radius: 3px;
+}
+
+.fetch:hover {
+  cursor: pointer;
+  background-color: #D6521E;
+}
+
 
  /* FEED INFO */
 .feed-info {

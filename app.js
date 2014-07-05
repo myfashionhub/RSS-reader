@@ -18,7 +18,7 @@ var feedsController = require(path.join(__dirname, 'feedsController'));
 
 app.get('/feeds', feedsController.index);
 app.post('/feeds', feedsController.create);
-app.get('/feeds/:id', feedsController.show);
+app.delete('/feeds/:id', feedsController.delete);
 
 var port = process.env.PORT || 8000;
 app.listen(port, function() {

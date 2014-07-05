@@ -17,9 +17,10 @@ exports.create = function(req, res) {
   });
 }
 
-exports.show = function(req, res) {
+exports.delete = function(req, res) {
   Feed.findById(req.params.id, function(err, feed) {
     if (err) return console.log(err);
-    res.send(feed);
+    Feed.delete(feed)
+    res.send('Feed deleted');
   })
 }
