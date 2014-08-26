@@ -13,7 +13,7 @@ function displaySaved(data) {
   $('.saved-feeds').empty();
   for (var i = 0; i < data.length; i++) {
     var feed = $('<a>').html(data[i].name)
-                       .attr('href', '#'+data[i].name)
+                       .attr('href', '#'+data[i]._id)
                        .attr('data-url', data[i].url);
     $('.saved-feeds').append(feed);
   }
@@ -24,22 +24,17 @@ function displaySaved(data) {
       feed.setNumEntries(10);
       feed.load(function(data) {
         displayFeed(data)
-        $('.feed-info').html('<h2>'+data.feed.title+'</h23>');
+        $('.feed-info').html('<h2>'+data.feed.title+'</h3>');
       });
   });
 }
 
-function savedInfo() {
+function showTooltip() {
   var tooltip = $('<p>').addClass('tooltip')
                         .html("Click on feed to view content")
                         .appendTo($('aside h3'));
 }
 
-function removeInfo() {
+function hideTooltip() {
   $('.tooltip').remove();
 }
-
-$(document).ready(function() {
-  loadArchives();
-  $('aside h3').hover(savedInfo, removeInfo);
-});

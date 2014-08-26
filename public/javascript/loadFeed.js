@@ -47,12 +47,17 @@ function saveFeed() {
   });
 }
 
-$(document).ready(function() {
-  $('.fetch').click(function(e) {
-    e.preventDefault();
-    var url = $('input').val();
-    $('input').val('');
-    loadFeed(url);
-  });
 
-});
+function rememberFeed() {
+  var id = location.hash;
+  id     = id.slice(1, id.length);
+  $.ajax({
+    url: '/feeds/'+id,
+    method: 'get',
+    dataType: 'json',
+    success: function(data) {
+      loadFeed(data.url);
+  },
+    error: function(err) { console.log(err); }
+  });
+}
