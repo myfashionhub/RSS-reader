@@ -18,14 +18,9 @@ function displaySaved(data) {
     $('.saved-feeds').append(feed);
   }
 
-  $('aside').find('a').click(function(e) {
+  $('aside a').click(function(e) {
     var url = $(e.target).attr('data-url');
-    var feed = new google.feeds.Feed(url);
-      feed.setNumEntries(10);
-      feed.load(function(data) {
-        displayFeed(data)
-        $('.feed-info').html('<h2>'+data.feed.title+'</h3>');
-      });
+    loadFeed(url, false);
   });
 }
 

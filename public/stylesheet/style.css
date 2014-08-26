@@ -94,7 +94,8 @@ h1 {
   cursor: pointer;
 }
 
-article img {
+article img,
+article iframe {
  max-width: 90%;
  height: auto;
 }

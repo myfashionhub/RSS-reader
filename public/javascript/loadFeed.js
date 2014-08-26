@@ -1,19 +1,23 @@
-function loadFeed(url) {
+function loadFeed(url, saveButton) {
   var feed = new google.feeds.Feed(url);
-  feed.setNumEntries(8);
+  feed.setNumEntries(10);
   feed.load(function(data) {
-    feedInfo(data, url);
+    feedInfo(data, url, saveButton);
     displayFeed(data);
   });
 }
 
-function feedInfo(data, url) {
+function feedInfo(data, url, saveButton) {
   $('.feed-info').empty();
   var name     = $('<a>').html(data.feed.title)
                          .attr('href', url)
                          .attr('target', '_blank');
-  var save     = $('<button>').html('Save this!').addClass('save-feed');
-  $('.feed-info').append(name).append(save);
+  $('.feed-info').append($('<h2>').wrapInner(name));
+
+  if (saveButton === true) {
+    var save     = $('<button>').html('Save this!').addClass('save-feed');
+    $('.feed-info').append(save);
+  }
 }
 
 function displayFeed(data) {
@@ -51,13 +55,15 @@ function saveFeed() {
 function rememberFeed() {
   var id = location.hash;
   id     = id.slice(1, id.length);
-  $.ajax({
-    url: '/feeds/'+id,
-    method: 'get',
-    dataType: 'json',
-    success: function(data) {
-      loadFeed(data.url);
-  },
-    error: function(err) { console.log(err); }
-  });
+  if (id != '') {
+    $.ajax({
+      url: '/feeds/'+id,
+      method: 'get',
+      dataType: 'json',
+      success: function(data) {
+        loadFeed(data.url, false);
+    },
+      error: function(err) { console.log(err); }
+    });
+  }
 }
