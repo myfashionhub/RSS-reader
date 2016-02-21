@@ -11,17 +11,16 @@
   </script>
   <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
   <!--script src='socket.io/socket.io.js'></script-->
-  <script src='javascript/loadFeed.js'></script>
-  <script src='javascript/savedFeeds.js'></script>
+  <script src='javascript/feed.js'></script>
   <script src='javascript/script.js'></script>
 </head>
 
 <body>
   <section class="search">
   <h1>RSS Reader</h1>
-  <form>
+  <form class='get-feed'>
     <input type="text" placeholder="Paste RSS feed URL here"></input>
-    <button class='fetch'>Fetch feed</button>
+    <button>Fetch feed</button>
   </form>
 
   <div class="feed-info"></div>
