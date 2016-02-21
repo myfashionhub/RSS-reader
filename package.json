@@ -4,12 +4,12 @@
   "version": "0.0.1",
   "private": true,
   "engines": {
-    "node": "0.11.x"
+    "node": "5.0.0"
   },
   "dependencies": {
     "express": "4.x",
     "body-parser": "1.4.3",
     "method-override": "2.0.2",
-    "mongoose": "3.8.12"
+    "mongoose": "4.4.4"
   }
 }
