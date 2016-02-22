@@ -30,9 +30,10 @@ function Feed() {
     var name     = $('<a>').html(data.feed.title).addClass('title')
                            .attr('href', url).attr('target', '_blank');
     $('.feed-info').append(name);
-    console.log('Show save', showSave)
+
     if (showSave === true) {
-      var save     = $('<button>').html('Save this!').addClass('save-feed');
+      var save     = $('<span>').html('<i class="fa fa-bookmark"></i> Save')
+                     .addClass('save-feed');
       $('.feed-info').append(save);
     }
 
@@ -46,13 +47,14 @@ function Feed() {
     for (var i = 0; i < entries.length; i++) {
       var article = $('<article>');
       var title   = $('<p>').html(entries[i].title);
-      var link    = $('<a>').attr('href', entries[i].link);
+      var link    = $('<a>').attr('href', entries[i].link)
+                    .attr('target','_blank');
       title.wrapInner(link);
 
       var content = $('<p>').html(entries[i].content)
       article.append(title).append(content);
       $('.content').append(article);
-    }  
+    }
   };
 
   this.saveFeed = function() {
@@ -66,7 +68,7 @@ function Feed() {
       dataType: 'json',
       success: function() { that.loadSavedFeeds(); }
       // Append new feed to sidebar after saving
-    });  
+    });
   };
 
   this.loadSavedFeeds = function() {
@@ -113,15 +115,4 @@ function Feed() {
   };
 
   this.init();
-}
-
-
-function showTooltip() {
-  var tooltip = $('<p>').addClass('tooltip')
-                        .html("Click on feed to view content")
-                        .appendTo($('aside h3'));
-}
-
-function hideTooltip() {
-  $('.tooltip').remove();
 }

@@ -2,6 +2,7 @@
 <head>
   <title>RSS reader</title>
   <meta charset="utf-8">
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="stylesheet/style.css">
 
   <script type="text/javascript" src="https://www.google.com/jsapi">
@@ -9,22 +10,22 @@
   <script type="text/javascript">
     google.load('feeds','1');
   </script>
-  <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+  <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
   <!--script src='socket.io/socket.io.js'></script-->
   <script src='javascript/feed.js'></script>
   <script src='javascript/script.js'></script>
 </head>
 
 <body>
-  <section class="search">
-  <h1>RSS Reader</h1>
-  <form class='get-feed'>
-    <input type="text" placeholder="Paste RSS feed URL here"></input>
-    <button>Fetch feed</button>
-  </form>
+  <header>
+    <h1>RSS Reader</h1>
+    <form class='get-feed'>
+      <input type="text" placeholder="Paste RSS feed URL here"></input>
+      <button>Fetch feed</button>
+    </form>
 
-  <div class="feed-info"></div>
-  </section>
+    <div class="feed-info"></div>
+  </header>
 
   <section class="content">
     &nbsp;
@@ -37,7 +38,3 @@
 
 </body>
 </html>
-
-
- <!--https://devcenter.heroku.com/articles/getting-started-with-nodejs
- change your port to process.env.PORT ex: app.listen(process.env.PORT, func...) -->

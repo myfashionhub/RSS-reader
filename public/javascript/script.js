@@ -1,17 +1,15 @@
+function showTooltip() {
+  var tooltip = $('<p>').addClass('tooltip')
+                        .html("Click on feed to view content")
+                        .appendTo($('aside h3'));
+}
+
+
 $(document).ready(function() {
   var feed = new Feed();
 
-
-  $('aside h3').hover(showTooltip, hideTooltip);
-
-  feed.loadSavedFeeds();
-
-  $('.fetch').click(function(e) {
-    e.preventDefault();
-    var url = $('input').val();
-    $('input').val('');
-    feed.loadFeed(url, true);
-  });
-
-  feed.showSingleFeed();
+  $('aside h3').hover(
+    function() { showTooltip(); },
+    function() { $('.tooltip').remove(); }
+  );
 });
